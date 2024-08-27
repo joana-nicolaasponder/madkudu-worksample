@@ -3,7 +3,6 @@
 Welcome to the **Antelope Data Dash** project! This web application is designed to visualize and compare various antelope species through interactive data tables, charts, and fact cards, giving users insights into the unique characteristics of each species.
 
 ## 🛠️ Tech Stack
-
 - **Frontend:** React.js, ChakraUI, Recharts
 - **Backend:** Node.js, Express.js
 
@@ -25,15 +24,15 @@ Starting with the frontend, I built a React.js application using ChakraUI for UI
 
 - **Data Visualization:** Enhanced my skills in creating dynamic and interactive charts using Recharts.
 - **Component-Based Architecture:** Gained deeper insights into organizing a React.js project with reusable components and custom hooks.
-- **Efficient Data Handling:** Recognized inefficiencies in data fetching, specifically reducing the number of antelopes fetched from six to two by passing antelopedata as a prop to the main component. Additionally, when strict mode is disabled, this results in rendering only one antelope, which minimizes unnecessary processing.
-
+- **Antelope Data Handling:** Recognizing that six antelopes were being fetched unnecessarily, I improved the efficiency by passing the antelopedata as a prop to the main component. The outcome is now optimized to display only two antelopes. Additionally, if strict mode is commented out, only one antelope should be displayed, ensuring minimal data processing and rendering.
 
 
 ## 🔧 Improvements
 
-- **Advanced Filtering:** Adding more sophisticated filtering options for users to customize their data views.
-- **Expanded Dataset:** Incorporating additional data points or species to provide more comprehensive comparisons.
-- **Scalability Considerations:** The current implementation, which re-renders frequently, could become a bottleneck with larger datasets. To address this, the logic would ideally be moved to the server-side, and a paginated view would be implemented to efficiently handle large volumes of data. However, given that there are only 25 datasets at present, it made sense to manage this on the frontend for simplicity and speed.
+- **Advanced Filtering:** More sophisticated filtering options could be added to allow users to customize their data views.
+- **Scalability Considerations:** The current implementation re-renders frequently, which could become a bottleneck with larger datasets. Ideally, logic could be moved to the server-side, and a paginated view could be implemented to efficiently handle large volumes of data. However, given the current dataset size, managing this on the frontend seemed sufficient for now.
+- **Testing:** Unit and integration tests were not implemented, but they are essential for ensuring reliability and stability. Adding comprehensive tests would be a priority if the project were to continue.
+
 
 ## 🛠️ Running the Project
 
