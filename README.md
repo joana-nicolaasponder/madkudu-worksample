@@ -25,7 +25,9 @@ Starting with the frontend, I built a React.js application using ChakraUI for UI
 
 - **Data Visualization:** Enhanced my skills in creating dynamic and interactive charts using Recharts.
 - **Component-Based Architecture:** Gained deeper insights into organizing a React.js project with reusable components and custom hooks.
-- **Efficient Data Handling:** Recognized and addressed inefficiencies in data fetching, specifically reducing the number of antelopes fetched from six to two by passing antelopedata as a prop to the main component. Additionally, when strict mode is disabled, this results in rendering only one antelope, which minimizes unnecessary processing.
+- **Efficient Data Handling:** Recognized inefficiencies in data fetching, specifically reducing the number of antelopes fetched from six to two by passing antelopedata as a prop to the main component. Additionally, when strict mode is disabled, this results in rendering only one antelope, which minimizes unnecessary processing.
+
+
 
 ## 🔧 Improvements
 

@@ -7,12 +7,15 @@ import {
   Stack,
   Highlight,
 } from '@chakra-ui/react'
-import useFetchAntelopeData from '../hooks/useFetchAntelopeData'
+import { Antelope } from '../models'
 
-const AntelopeView: React.FC = () => {
+type AntelopeViewProps = {
+  data: Antelope[]
+}
+
+const AntelopeView: React.FC<AntelopeViewProps> = ( { data }) => {
   const [flippedCard, setFlippedCard] = useState<string | null>(null)
 
-  const { antelopeData } = useFetchAntelopeData()
 
   const handleFlip = (name: string) => {
     setFlippedCard(flippedCard === name ? null : name)
@@ -21,7 +24,7 @@ const AntelopeView: React.FC = () => {
   return (
     <Box p="6" bg="gray.100" minH="100vh">
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing="6">
-        {antelopeData.map((antelope) => (
+        {data.map((antelope) => (
           <Box
             key={antelope.name}
             p="4"
@@ -29,11 +32,6 @@ const AntelopeView: React.FC = () => {
             boxShadow="md"
             borderRadius="lg"
             overflow="hidden"
-            transform={
-              flippedCard === antelope.name
-                ? 'rotateY(180deg)'
-                : 'rotateY(0deg)'
-            }
             transition="transform 0.6s"
             cursor="pointer"
             onClick={() => handleFlip(antelope.name)}

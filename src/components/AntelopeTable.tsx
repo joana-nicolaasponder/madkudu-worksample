@@ -11,11 +11,15 @@ import {
   Image,
   Select,
 } from '@chakra-ui/react'
-import useFetchAntelopeData from '../hooks/useFetchAntelopeData'
+
 import { Antelope } from '../models'
 
-const AntelopeTable: React.FC = () => {
-  const { antelopeData, error } = useFetchAntelopeData()
+type AntelopeTableProps = {
+  data: Antelope[]
+}
+
+const AntelopeTable: React.FC<AntelopeTableProps> = ({ data }) => {
+  
   const [filteredData, setFilteredData] = useState<Antelope[]>([])
   const [filterCriteria, setFilterCriteria] = useState({
     continent: '',
@@ -25,11 +29,7 @@ const AntelopeTable: React.FC = () => {
   })
 
   useEffect(() => {
-    setFilteredData(antelopeData)
-  }, [antelopeData, error])
-
-  useEffect(() => {
-    const filtered = antelopeData.filter((antelope) => {
+    const filtered = data.filter((antelope) => {
       const matchesContinent = filterCriteria.continent
         ? antelope.continent === filterCriteria.continent
         : true
@@ -47,7 +47,7 @@ const AntelopeTable: React.FC = () => {
     })
 
     setFilteredData(filtered)
-  }, [filterCriteria, antelopeData])
+  }, [filterCriteria, data])
 
   const handleFilterChange = (
     key: keyof typeof filterCriteria,
@@ -60,16 +60,16 @@ const AntelopeTable: React.FC = () => {
   }
 
   const uniqueContinents = Array.from(
-    new Set(antelopeData.map((antelope) => antelope.continent))
+    new Set(data.map((antelope) => antelope.continent))
   )
   const uniqueHorns = Array.from(
-    new Set(antelopeData.map((antelope) => antelope.horns))
+    new Set(data.map((antelope) => antelope.horns))
   )
   const uniqueWeights = Array.from(
-    new Set(antelopeData.map((antelope) => antelope.weight.toString()))
+    new Set(data.map((antelope) => antelope.weight.toString()))
   ).sort((a, b) => parseFloat(a) - parseFloat(b))
   const uniqueHeights = Array.from(
-    new Set(antelopeData.map((antelope) => antelope.height.toString()))
+    new Set(data.map((antelope) => antelope.height.toString()))
   ).sort((a, b) => parseFloat(a) - parseFloat(b))
 
   return (

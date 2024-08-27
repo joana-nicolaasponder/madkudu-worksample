@@ -10,12 +10,47 @@ import {
   Tabs,
   Text,
   Highlight,
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
 } from '@chakra-ui/react'
 import VisualizationApp from './components/VisualizationApp'
 import AntelopeTable from './components/AntelopeTable'
 import AntelopeView from './components/AntelopeView'
+import useFetchAntelopeData from './hooks/useFetchAntelopeData'
 
 function App() {
+  const { antelopeData, error } = useFetchAntelopeData()
+
+  if (error) {
+    return (
+      <Container maxW="container.xl" py={10}>
+        <Box mb={10} width="100%">
+          <Box bg="white" p={4} borderRadius="lg" mb={6}>
+            <Heading
+              as="h1"
+              size="4xl"
+              mb={4}
+              flex={3}
+              fontFamily={'montserrat'}
+              textAlign={'center'}
+              fontWeight={'extrabold'}
+              color={'navy'}
+            >
+              Antelope Data Dash
+            </Heading>
+            <Alert status="error">
+              <AlertIcon />
+              <AlertTitle>Error</AlertTitle>
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          </Box>
+        </Box>
+      </Container>
+    )
+  }
+
   return (
     <>
       <Box
@@ -82,7 +117,7 @@ function App() {
             <TabPanels>
               <TabPanel>
                 <Box width="100%" bg="gray.200" p={4} borderRadius="lg" mb={10}>
-                  <AntelopeView />
+                  <AntelopeView data={antelopeData} />
                 </Box>
               </TabPanel>
               <TabPanel>
@@ -98,7 +133,7 @@ function App() {
                   <Heading as="h2" size="lg" mb={4}>
                     Antelope Data
                   </Heading>
-                  <AntelopeTable />
+                  <AntelopeTable data={antelopeData} />
                 </Box>
               </TabPanel>
               <TabPanel>
@@ -111,7 +146,7 @@ function App() {
                   bg="gray.50"
                   boxShadow="md"
                 >
-                  <VisualizationApp />
+                  <VisualizationApp data={antelopeData} />
                 </Box>
               </TabPanel>
             </TabPanels>

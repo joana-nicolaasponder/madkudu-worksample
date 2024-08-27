@@ -4,12 +4,15 @@ import { Box, Select, Text } from '@chakra-ui/react'
 import BarChartComponent from './BarChartComponent'
 import PieChartComponent from './PieChartComponent'
 import ScatterPlotComponent from './ScatterPlotComponent'
-import useFetchAntelopeData from '../hooks/useFetchAntelopeData'
 
-const VisualizationApp: React.FC = () => {
+import { Antelope } from '../models'
+type VisualizationAppProps = {
+  data: Antelope[]
+}
+const VisualizationApp: React.FC<VisualizationAppProps> = ({ data }) => {
   const [chartType, setChartType] = useState<string>('bar')
 
-  const { antelopeData } = useFetchAntelopeData()
+  // const { antelopeData } = useFetchAntelopeData()
 
   const handleChartTypeChange = (
     event: React.ChangeEvent<HTMLSelectElement>
@@ -27,9 +30,9 @@ const VisualizationApp: React.FC = () => {
         <option value="pie">Geographical Distribution</option>
         <option value="scatter">Correlation Between Weight and Height</option>
       </Select>
-      {chartType === 'bar' && <BarChartComponent data={antelopeData} />}
-      {chartType === 'pie' && <PieChartComponent data={antelopeData} />}
-      {chartType === 'scatter' && <ScatterPlotComponent data={antelopeData} />}
+      {chartType === 'bar' && <BarChartComponent data={data} />}
+      {chartType === 'pie' && <PieChartComponent data={data} />}
+      {chartType === 'scatter' && <ScatterPlotComponent data={data} />}
     </Box>
   )
 }
