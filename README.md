@@ -53,3 +53,16 @@ Starting with the frontend, I built a React.js application using ChakraUI for UI
 Check out the screenshot below to get a quick overview of the Antelope Data Dash project in action!
 ![Antelope Data Dash](./public/screenshot.png)
 
+<div>
+    <a href="https://www.loom.com/share/9c94a041605a4e9092594f14998223a2?sid=59fbf090-6d2c-4311-8bfb-7e9da7f663c4">
+      <p>Antelope Data Dash - Demo</p>
+    </a>
+    <div>
+    <a href="https://www.loom.com/share/9c94a041605a4e9092594f14998223a2">
+    </a>
+    <a href="https://www.loom.com/share/9c94a041605a4e9092594f14998223a2">
+      <img style="max-width:100%;" src="https://cdn.loom.com/sessions/thumbnails/9c94a041605a4e9092594f14998223a2-fed5abd06db6eff4-full-play.gif">
+    </a>
+  </div>
+  
+
